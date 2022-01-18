@@ -3,13 +3,17 @@ serial-locate
 A simple tool for searching the COM port
 
 ### Usage
-- In microcontroller's downloader script
+- Direct query
+```batch
+serial-locate.exe --vid=2341 --pid=0043 --usb=true
+```
+- In microcontroller's downloader (e.g. `avrdude.exe`) script
 ```batch
 @echo off
 REM say searching for Arduino UNO COM port and pass to avrdude.exe
 
 for /f "tokens=*" %%a in (
-    '%~dp0tools\serial-locate.exe --vid=2341 --pid=0043 --usb=true'
+    'serial-locate.exe --vid=2341 --pid=0043 --usb=true'
 ) do (
     set comport=%%a
 )
