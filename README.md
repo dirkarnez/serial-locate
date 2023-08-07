@@ -24,3 +24,7 @@ C:\arduino-1.8.19\hardware\tools\avr\bin\avrdude.exe -C"C:\arduino-1.8.19\hardwa
 
 pause
 ```
+
+### TODOs
+- [ ] cheatsheet in `--help`
+    - https://github.com/BrewPi/brewpi-script/blob/develop/autoSerial.py 
