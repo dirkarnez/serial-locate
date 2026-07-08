@@ -24,9 +24,9 @@ func main() {
 	flag.BoolVar(&isUSB, "usb", true, "USB. Default true")
 	flag.Parse()
 
-	if isUSB && (len(vid) < 1 || len(pid) < 1) {
-		log.Fatal("Incomplete argrument")
-	}
+	// if isUSB && (vid == nil || len(*vid) < 1 || pid == nil || len(*pid) < 1) {
+	// 	log.Fatal("Incomplete argrument")
+	// }
 
 	ports, err := enumerator.GetDetailedPortsList()
 	if err != nil {
