@@ -12,7 +12,6 @@ var (
 	vid   *string
 	pid   *string
 	serialNumber *string
-	configuration *string
 	isUSB bool
 )
 
@@ -20,7 +19,6 @@ func main() {
 	flag.StringVar(vid, "vid", "", "VID, default null")
 	flag.StringVar(pid, "pid", "", "PID, default null")
 	flag.StringVar(serialNumber, "serialnumber", "", "Serialnumber, default null")
-	flag.StringVar(configuration, "configuration", "", "Configuration, default null")
 	flag.BoolVar(&isUSB, "usb", true, "USB. Default true")
 	flag.Parse()
 
@@ -38,7 +36,7 @@ func main() {
 	}
 
 	for _, port := range ports {
-		if port.IsUSB == isUSB && ( vid != nil || port.VID == *vid ) && ( pid != nil || port.PID == *pid )  && ( serialNumber != nil || port.SerialNumber == *serialNumber ) && ( configuration != nil || port.Configuration == *configuration )  {
+		if port.IsUSB == isUSB && ( vid != nil || port.VID == *vid ) && ( pid != nil || port.PID == *pid ) && ( serialNumber != nil || port.SerialNumber == *serialNumber )  {
 			fmt.Print(port.Name)
 		}
 	}
