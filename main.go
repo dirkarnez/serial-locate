@@ -17,10 +17,10 @@ var (
 )
 
 func main() {
-	flag.StringVar(vid, "vid", nil, "VID, default null")
-	flag.StringVar(pid, "pid", nil, "PID, default null")
-	flag.StringVar(serialNumber, "serialnumber", nil, "Serialnumber, default null")
-	flag.StringVar(configuration, "configuration", nil, "Configuration, default null")
+	flag.StringVar(vid, "vid", "", "VID, default null")
+	flag.StringVar(pid, "pid", "", "PID, default null")
+	flag.StringVar(serialNumber, "serialnumber", "", "Serialnumber, default null")
+	flag.StringVar(configuration, "configuration", "", "Configuration, default null")
 	flag.BoolVar(&isUSB, "usb", true, "USB. Default true")
 	flag.Parse()
 
