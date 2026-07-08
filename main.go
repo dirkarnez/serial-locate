@@ -9,14 +9,18 @@ import (
 )
 
 var (
-	vid   string
-	pid   string
+	vid   *string
+	pid   *string
+	serialNumber *string
+	configuration *string
 	isUSB bool
 )
 
 func main() {
-	flag.StringVar(&vid, "vid", "", "VID")
-	flag.StringVar(&pid, "pid", "", "PID")
+	flag.StringVar(vid, "vid", nil, "VID, default null")
+	flag.StringVar(pid, "pid", nil, "PID, default null")
+	flag.StringVar(serialNumber, "serialnumber", nil, "Serialnumber, default null")
+	flag.StringVar(configuration, "configuration", nil, "Configuration, default null")
 	flag.BoolVar(&isUSB, "usb", true, "USB. Default true")
 	flag.Parse()
 
@@ -29,11 +33,12 @@ func main() {
 		log.Fatal(err)
 	}
 	if len(ports) == 0 {
+		log.Fatal("No serial ports found!")
 		return
 	}
 
 	for _, port := range ports {
-		if port.IsUSB == isUSB && port.VID == vid && port.PID == pid {
+		if port.IsUSB == isUSB && ( vid != nil || port.VID == *vid ) && ( pid != nil || port.PID == *pid )  && ( serialNumber != nil || port.SerialNumber == *serialNumber ) && ( configuration != nil || port.Configuration == *configuration )  {
 			fmt.Print(port.Name)
 		}
 	}
