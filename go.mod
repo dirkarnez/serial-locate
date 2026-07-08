@@ -1,6 +1,6 @@
 module github.com/dirkarnez/serial-locate
 
-go 1.17
+go 1.25
 
 require go.bug.st/serial v1.3.4
 
