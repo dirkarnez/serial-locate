@@ -46,7 +46,7 @@ func main() {
 				fmt.Printf("   USB PID    %s\n", port.PID)
 				fmt.Printf("   USB prod.  %s\n", port.Product)
 				fmt.Printf("   USB serial %s\n", port.SerialNumber)
-				fmt.Printf("Detailed struct: %#v\n\n", p)
+				fmt.Printf("Detailed struct: %#v\n\n", port)
 			}
 		}
 	} else {
