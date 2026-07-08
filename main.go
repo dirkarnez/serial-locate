@@ -50,7 +50,7 @@ func main() {
 		}
 	} else {
 		for _, port := range ports {
-			if port.IsUSB == isUSB && ( vid != "" || port.VID == vid ) && ( pid != "" || port.PID == pid ) && ( serialNumber != "" || port.SerialNumber == *serialNumber )  {
+			if port.IsUSB == isUSB && ( vid != "" || port.VID == vid ) && ( pid != "" || port.PID == pid ) && ( serialNumber != "" || port.SerialNumber == serialNumber )  {
 				fmt.Print(port.Name)
 			}
 		}
